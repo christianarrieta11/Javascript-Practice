@@ -1,52 +1,49 @@
 <DCOTYPE html> 
             <head>
 
-                <a href="#">Link 0 </a>
-                <a href="#">Link 1 </a>
-                <a href="#">Link 2 </a>
-                <a href="#">Link 3 </a>
-                <a href="#">Link 4 </a>
 
 
         </head>
 
 
                             <body>
-
+                                    <input type="text" id="username" placeholder="Choose Username">
+                                    <input type="password" id="password" placeholer="Choose Password">
+                                    <button type="button" onclick="getInfo()">Click Me</button>
                                 <script>
 
-                                        var links = document.getElementsByTagName("a");
-                                        for(i = 0; i < links.length; i++){
+                                                var objPeople = [
+	{ 
+		username: "chris",
+		password: "tom"
+	},
+	{ 
+		username: "matt",
+		password: "academy"
+	},
+	{ 
+		username: "chris",
+		password: "forever"
+	}
 
-                                            links[i] .className ="link-" + i;
-                                        }
-                                     
-                                      var myList = ['apples', 'bananas','oranges'];
-                                      myList.forEach(function(vaule,index){
-                                          
-                                   return(vaule,index);
+]
 
-                                      });
-                                      /// while for loop practice
-                                      var times = 0;
-                                      while (times < 10){
-                                          console.log('tried it',times);
-                                          times++;
-                                      }
-                                      /// do loop does the samething as the code above
-                                      do{
-                                          console.log('tried it',times);
-                                        times++;
+function getInfo() {
+	var username = document.getElementById('username').value
+	var password = document.getElementById('password').value
 
-                                      } while(times < 10); 
+	for(var i = 0; i < objPeople.length; i++) {
 
-                                      /// for loop below
-                                        mylist =['Apples','Oranges','bananas'];
-                                      for(var i = 0; i < mylist.length; i++){
-
-                                            console.log(mylist[i]);
-                                      }
-
+		if(username == objPeople[i].username && password == objPeople[i].password) {
+			console.log(username + " is logged in!!!")
+            alert("Welcome");
+			
+			return
+		}
+	}
+	console.log("incorrect username or password")
+    alert("incorrect username or password!");
+}
                                     </script>
 
 
